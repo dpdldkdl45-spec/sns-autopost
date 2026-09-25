@@ -57,7 +57,6 @@
   </li>
   <li><strong>Upload.</strong> At the scheduled time the tool calls <code>videos.insert</code> to upload the video with the title and description the operator prepared.</li>
   <li><strong>Visibility.</strong> The operator decides each video's visibility in advance. Videos are uploaded as <em>private</em> with a scheduled publish time (<code>status.publishAt</code>) chosen by the operator; YouTube then makes the video public at that time. The tool does not change the visibility of any other existing video.</li>
-  <li><strong>Confirmation.</strong> After the scheduled publish time, the tool looks up the status of that uploaded video (<code>videos.list</code>, <code>part=status</code>) to confirm it has become public.</li>
   <li><strong>Result record.</strong> The tool records the returned video ID, the scheduled time and the result (success or error) in the operator's own local log files and the operator's private scheduling workspace (Notion), so the same video is not uploaded twice.</li>
 </ol>
 <div class="ko" lang="ko">
@@ -65,7 +64,6 @@
   <li><strong>인증(1회):</strong> 운영자가 Google OAuth 2.0으로 로그인해 위 스코프만 허용합니다. 발급된 refresh token은 운영자 PC의 로컬 파일에 저장됩니다. YouTube/Google 비밀번호는 요청·수집·저장하지 않습니다.</li>
   <li><strong>업로드:</strong> 예약 시각에 <code>videos.insert</code>를 호출해 운영자가 작성한 제목·설명으로 영상을 업로드합니다.</li>
   <li><strong>공개 상태:</strong> 공개 여부는 운영자가 미리 정합니다. 영상은 <em>비공개</em>로 업로드되고 운영자가 정한 예약 공개 시각(<code>status.publishAt</code>)에 YouTube가 공개로 전환합니다. 다른 기존 영상의 공개 상태는 바꾸지 않습니다.</li>
-  <li><strong>공개 확인:</strong> 예약 공개 시각 이후 해당 영상의 상태를 조회(<code>videos.list</code>, <code>part=status</code>)해 공개 전환을 확인합니다.</li>
   <li><strong>결과 기록:</strong> 중복 업로드 방지를 위해 반환된 영상 ID·예약 시각·결과(성공/오류)를 운영자 본인의 로컬 로그 파일과 운영자 전용 일정 관리 공간(Notion)에 기록합니다.</li>
 </ol>
 </div>
